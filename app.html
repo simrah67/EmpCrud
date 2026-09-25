@@ -1,0 +1,129 @@
+<div class="container">
+
+  <h1>Employee Management System</h1>
+
+  <div class="form-box">
+
+    <h2>Employee Details</h2>
+
+    <form>
+
+      <label>Employee ID</label>
+      <input
+        type="number"
+        name="id"
+        [(ngModel)]="employee.id"
+        placeholder="Enter employee ID"
+      >
+
+      <label>Name</label>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="employee.name"
+        placeholder="Enter employee name"
+      >
+
+      <label>Age</label>
+      <input
+        type="number"
+        name="age"
+        [(ngModel)]="employee.age"
+        placeholder="Enter age"
+      >
+
+      <label>Salary</label>
+      <input
+        type="number"
+        name="salary"
+        [(ngModel)]="employee.salary"
+        placeholder="Enter salary"
+      >
+
+      <label>Designation</label>
+      <input
+        type="text"
+        name="design"
+        [(ngModel)]="employee.design"
+        placeholder="Enter designation"
+      >
+
+      <div class="buttons">
+
+        <button
+          type="button"
+          class="add-btn"
+          (click)="addEmployee()">
+          Add Employee
+        </button>
+
+        <button
+          type="button"
+          class="update-btn"
+          (click)="updateEmployee()">
+          Update Employee
+        </button>
+
+        <button
+          type="button"
+          class="clear-btn"
+          (click)="clearForm()">
+          Clear
+        </button>
+
+      </div>
+
+    </form>
+
+    <p class="message">{{ message }}</p>
+
+  </div>
+
+  <h2>Employee List</h2>
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Designation</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let emp of employees">
+
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.age }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>{{ emp.design }}</td>
+
+        <td>
+
+          <button
+            class="edit-btn"
+            (click)="editEmployee(emp)">
+            Edit
+          </button>
+
+          <button
+            class="delete-btn"
+            (click)="deleteEmployee(emp.id)">
+            Delete
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
